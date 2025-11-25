@@ -12,8 +12,6 @@ import {
 } from 'react-native-safe-area-context';
 import {
   PaperProvider,
-  MD3LightTheme,
-  MD3DarkTheme,
   Appbar,
   Card,
   Button,
@@ -21,10 +19,11 @@ import {
   FAB,
   Chip,
 } from 'react-native-paper';
+import { MinimalistLightTheme, MinimalistDarkTheme } from './src/theme';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-  const theme = isDarkMode ? MD3DarkTheme : MD3LightTheme;
+  const theme = isDarkMode ? MinimalistDarkTheme : MinimalistLightTheme;
 
   return (
     <SafeAreaProvider>
