@@ -82,6 +82,33 @@ You've successfully run and modified your React Native App. :partying_face:
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
 
+# Renaming the App
+
+This boilerplate uses "Boilerplate" as the default app name. To rename it to your own app name (e.g., "MyApp"):
+
+```sh
+npx react-native-rename@latest "MyApp" -b com.mycompany.myapp
+```
+
+Where:
+- `"MyApp"` is your new app display name
+- `-b com.mycompany.myapp` is your new bundle identifier
+
+After renaming, clean and reinstall dependencies:
+
+```sh
+rm -rf node_modules ios/Pods ios/Podfile.lock
+npm install
+cd ios && pod install && cd ..
+
+# Update icon fonts in Info.plist (use your new app folder name)
+npx rnvi-update-plist package.json ios/MyApp/Info.plist
+
+# Rebuild
+npm run ios
+npm run android
+```
+
 # Troubleshooting
 
 If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
